@@ -39,6 +39,11 @@
 "移动到" = "Move to";
 "复制到" = "Copy to";
 "复制路径" = "Copy Path";
+"查看隐藏文件" = "View Hidden Files";
+"隐藏文件" = "Hidden Files";
+"打开" = "Open";
+"无法查看隐藏文件" = "Couldn’t View Hidden Files";
+"这个文件夹没有隐藏项目。" = "This folder has no hidden items.";
 "在终端中打开" = "Open in Terminal";
 "未命名" = "Untitled";
 "纯文本" = "Plain Text";

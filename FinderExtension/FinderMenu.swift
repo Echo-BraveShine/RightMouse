@@ -84,6 +84,13 @@ final class FinderMenu: FIFinderSync {
                 }
                 destinations.append(transferMenuItem(tr("选择目录…"), tag: direction))
                 addSubmenu(command, to: menu, items: destinations)
+            case .hiddenItems:
+                guard kind == .contextualMenuForContainer, controller.targetedURL() != nil else { continue }
+                let entry = NSMenuItem(
+                    title: tr(command.rawValue) + "…", action: #selector(showHiddenItems(_:)), keyEquivalent: ""
+                )
+                entry.target = self
+                menu.addItem(entry)
             case .terminal:
                 let opensSelection = kind == .contextualMenuForItems
                 guard opensSelection ? selection.count == 1 : controller.targetedURL() != nil else { continue }
@@ -160,6 +167,32 @@ final class FinderMenu: FIFinderSync {
         } catch {
             logger.error("New file failed: \(error as NSError, privacy: .private)")
             show(tr("无法新建文件"), error.localizedDescription)
+        }
+    }
+
+    @objc private func showHiddenItems(_ sender: NSMenuItem) {
+        logger.notice("Hidden files action received")
+        guard let directory = controller.targetedURL() else {
+            show(tr("无法查看隐藏文件"), tr("访达未提供目标目录，请重新选择。"))
+            return
+        }
+
+        var request = URLComponents()
+        request.scheme = "rightmouse"
+        request.host = "hidden-files"
+        request.queryItems = [URLQueryItem(name: "directory", value: directory.path)]
+        guard let url = request.url else { return }
+
+        let appURL = Bundle.main.bundleURL
+            .deletingLastPathComponent() // PlugIns
+            .deletingLastPathComponent() // Contents
+            .deletingLastPathComponent() // RightMouse.app
+        NSWorkspace.shared.open([url], withApplicationAt: appURL, configuration: .init()) { _, error in
+            guard let error else { return }
+            self.logger.error("Could not open hidden files window: \(error as NSError, privacy: .private)")
+            DispatchQueue.main.async {
+                self.show(self.tr("无法查看隐藏文件"), error.localizedDescription)
+            }
         }
     }
 

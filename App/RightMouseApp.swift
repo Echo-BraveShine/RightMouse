@@ -3,12 +3,39 @@ import SwiftUI
 
 @main
 struct RightMouseApp: App {
+    @NSApplicationDelegateAdaptor private var appDelegate: RightMouseAppDelegate
+
     var body: some Scene {
         Window("RightMouse", id: "settings") {
             SettingsView()
                 .frame(minWidth: 680, minHeight: 470)
         }
         .defaultSize(width: 780, height: 530)
+
+        Window(hiddenFilesTitle, id: "hidden-files") {
+            HiddenFilesWindow(appDelegate: appDelegate)
+                .frame(minWidth: 340, minHeight: 220)
+                .handlesExternalEvents(preferring: [HiddenFilesWindow.route], allowing: [HiddenFilesWindow.route])
+        }
+        .defaultSize(width: 460, height: 320)
+        .handlesExternalEvents(matching: [HiddenFilesWindow.route])
+        .commandsRemoved()
+    }
+
+    private var hiddenFilesTitle: String {
+        let language = (try? Preferences.load())?.resolvedLanguage ?? .systemDefault
+        return language.text("隐藏文件")
+    }
+}
+
+@MainActor
+private final class RightMouseAppDelegate: NSObject, NSApplicationDelegate {
+    var openSettingsWindow: (() -> Void)?
+
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
+        guard sender.activationPolicy() == .accessory, let openSettingsWindow else { return true }
+        openSettingsWindow()
+        return false
     }
 }
 
@@ -86,6 +113,10 @@ private struct SettingsView: View {
         }
         .background(Color(nsColor: .windowBackgroundColor))
         .onAppear {
+            if NSApp.activationPolicy() != .regular {
+                NSApp.setActivationPolicy(.regular)
+                NSApp.activate(ignoringOtherApps: true)
+            }
             refreshExtensionStatus()
             if !checkedExtensionOnLaunch {
                 checkedExtensionOnLaunch = true
@@ -619,6 +650,134 @@ private extension InterfaceAppearance {
         case .system: "跟随系统"
         case .light: "浅色"
         case .dark: "深色"
+        }
+    }
+}
+
+private struct HiddenFilesWindow: View {
+    static let route = "rightmouse://hidden-files?"
+    let appDelegate: RightMouseAppDelegate
+    @Environment(\.openWindow) private var openWindow
+
+    @State private var directory: URL?
+    @State private var items: [URL] = []
+    @State private var preferences = Preferences()
+    @State private var errorMessage: String?
+    @State private var itemOpenError: String?
+
+    var body: some View {
+        Group {
+            if let errorMessage {
+                VStack(spacing: 8) {
+                    Text(preferences.resolvedLanguage.text("无法查看隐藏文件"))
+                        .font(.headline)
+                    Text(errorMessage)
+                        .foregroundStyle(.secondary)
+                }
+                .multilineTextAlignment(.center)
+                .padding()
+            } else if let directory {
+                HiddenItemsView(
+                    directory: directory, items: items,
+                    emptyMessage: preferences.resolvedLanguage.text("这个文件夹没有隐藏项目。"),
+                    openTitle: preferences.resolvedLanguage.text("打开"), open: openItem
+                )
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .preferredColorScheme(colorScheme)
+        .onAppear {
+            let openWindow = openWindow
+            appDelegate.openSettingsWindow = { openWindow(id: "settings") }
+        }
+        .onOpenURL(perform: open)
+        .alert(itemOpenError ?? "", isPresented: Binding(
+            get: { itemOpenError != nil },
+            set: { if !$0 { itemOpenError = nil } }
+        )) {
+            Button(preferences.resolvedLanguage.text("好"), role: .cancel) {}
+        }
+    }
+
+    private var colorScheme: ColorScheme? {
+        switch preferences.resolvedAppearance {
+        case .system: nil
+        case .light: .light
+        case .dark: .dark
+        }
+    }
+
+    private func open(_ url: URL) {
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+              components.scheme == "rightmouse", components.host == "hidden-files",
+              let path = components.queryItems?.first(where: { $0.name == "directory" })?.value,
+              path.hasPrefix("/"), !path.utf8.contains(0) else { return }
+
+        let directory = URL(fileURLWithPath: path, isDirectory: true)
+        preferences = (try? Preferences.load()) ?? Preferences()
+        self.directory = directory
+        do {
+            items = try hiddenItems(in: directory)
+            errorMessage = nil
+        } catch {
+            items = []
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    private func hiddenItems(in directory: URL) throws -> [URL] {
+        try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: [.isHiddenKey])
+            .filter { url in
+                url.lastPathComponent.hasPrefix(".") ||
+                    (try? url.resourceValues(forKeys: [.isHiddenKey]).isHidden) == true
+            }
+            .sorted { $0.lastPathComponent.localizedStandardCompare($1.lastPathComponent) == .orderedAscending }
+    }
+
+    private func openItem(_ item: URL) {
+        if !NSWorkspace.shared.open(item) {
+            itemOpenError = preferences.resolvedLanguage.text("无法打开「%@」", item.lastPathComponent)
+        }
+    }
+}
+
+private struct HiddenItemsView: View {
+    let directory: URL
+    let items: [URL]
+    let emptyMessage: String
+    let openTitle: String
+    let open: (URL) -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text(directory.path)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .truncationMode(.middle)
+                .help(directory.path)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+
+            Divider()
+
+            if items.isEmpty {
+                Text(emptyMessage)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List(items, id: \.self) { item in
+                    Text(item.lastPathComponent)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 4)
+                        .contentShape(Rectangle())
+                        .onTapGesture(count: 2) { open(item) }
+                        .contextMenu {
+                            Button(openTitle) { open(item) }
+                        }
+                }
+                .listStyle(.inset)
+            }
         }
     }
 }

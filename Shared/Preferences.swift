@@ -34,6 +34,7 @@ enum Command: String, CaseIterable, Codable, Identifiable {
     case favorites = "常用目录"
     case path = "复制路径"
     case terminal = "在终端中打开"
+    case hiddenItems = "查看隐藏文件"
 
     var id: String { rawValue }
 }
@@ -88,6 +89,23 @@ struct Preferences: Codable {
         FileTemplate(name: "纯文本", fileExtension: "txt", data: Data()),
         FileTemplate(name: "Markdown", fileExtension: "md", data: Data())
     ]
+
+    private enum CodingKeys: String, CodingKey {
+        case language, appearance, commands, hidden, folders, templates
+    }
+
+    init() {}
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        language = try values.decodeIfPresent(InterfaceLanguage.self, forKey: .language)
+        appearance = try values.decodeIfPresent(InterfaceAppearance.self, forKey: .appearance)
+        // Older settings may contain commands that have since been removed.
+        commands = try values.decode([String].self, forKey: .commands).compactMap(Command.init(rawValue:))
+        hidden = Set(try values.decode([String].self, forKey: .hidden).compactMap(Command.init(rawValue:)))
+        folders = try values.decode([Folder].self, forKey: .folders)
+        templates = try values.decode([FileTemplate].self, forKey: .templates)
+    }
 
     static let homeDirectory = URL(
         fileURLWithPath: getpwuid(getuid()).map { String(cString: $0.pointee.pw_dir) }
