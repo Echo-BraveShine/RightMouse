@@ -5,8 +5,15 @@ cd "$(dirname "$0")/.."
 derived_data="$PWD/.build/release"
 output="$PWD/dist"
 
+build_settings=(ARCHS="arm64 x86_64" ONLY_ACTIVE_ARCH=NO)
+if [[ -n "${CODESIGN_IDENTITY:-}" ]]; then
+  : "${NOTARY_KEY_PATH:?Set NOTARY_KEY_PATH for Developer ID releases}"
+  : "${NOTARY_KEY_ID:?Set NOTARY_KEY_ID for Developer ID releases}"
+  : "${NOTARY_ISSUER_ID:?Set NOTARY_ISSUER_ID for Developer ID releases}"
+  build_settings+=(CODE_SIGN_IDENTITY="$CODESIGN_IDENTITY" CODE_SIGN_STYLE=Manual ENABLE_HARDENED_RUNTIME=YES)
+fi
 xcodebuild -project RightMouse.xcodeproj -scheme RightMouse -configuration Release \
-  -derivedDataPath "$derived_data" ARCHS="arm64 x86_64" ONLY_ACTIVE_ARCH=NO build
+  -derivedDataPath "$derived_data" "${build_settings[@]}" build
 
 app="$derived_data/Build/Products/Release/RightMouse.app"
 extension="$app/Contents/PlugIns/RightMouseFinder.appex"
@@ -29,6 +36,16 @@ fi
 if [[ -n "${RELEASE_TAG:-}" && "$RELEASE_TAG" != "v$version" ]]; then
   echo "Release tag $RELEASE_TAG must match app version v$version" >&2
   exit 1
+fi
+
+if [[ -n "${CODESIGN_IDENTITY:-}" ]]; then
+  signing_work=$(mktemp -d)
+  trap 'rm -f "$signing_work/RightMouse.zip"; rmdir "$signing_work"' EXIT
+  ditto -c -k --sequesterRsrc --keepParent "$app" "$signing_work/RightMouse.zip"
+  xcrun notarytool submit "$signing_work/RightMouse.zip" --key "$NOTARY_KEY_PATH" \
+    --key-id "$NOTARY_KEY_ID" --issuer "$NOTARY_ISSUER_ID" --wait
+  xcrun stapler staple "$app"
+  xcrun stapler validate "$app"
 fi
 
 mkdir -p "$output"

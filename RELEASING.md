@@ -11,7 +11,13 @@
 3. 在该提交打上匹配的标签，例如应用版本为 `0.0.1` 时使用 `v0.0.1`，再将标签推送到 GitHub。
 4. Release 工作流验证标签与两份 plist 的版本一致，再把 `22 + GITHUB_RUN_NUMBER` 写入本次构建的两份 plist。重跑同一次工作流会沿用同一构建号。之后用 Sparkle 签名 ZIP，并发布 ZIP、校验文件、更新源和 GitHub 生成的发布说明。推送发布标签前，请确认该版本可公开分发。
 
-当前 ZIP 使用临时签名。需要正式对外分发时，应接入 Apple Developer ID 签名和公证流程，并验证签名后访达扩展能够启用。App 内的 Sparkle 通过 GitHub Releases 的 `appcast.xml` 检查并安装正式更新。
+如果标签已在 GitHub 上，但 Release 工作流没有运行，可以在 **Actions → Release → Run workflow** 选择 `main`，并输入现有标签（如 `v0.0.1`）。工作流会检出该标签的源码进行构建。已有空 Release 时，会把产物上传到该 Release。正常发版使用 `git push origin v0.0.1` 推送新标签来自动触发 Release。推送普通分支提交只触发各自适用的 CI 或官网工作流。
+
+未配置 Apple 证书时，ZIP 使用临时签名。App 内的 Sparkle 通过 GitHub Releases 的 `appcast.xml` 检查并安装正式更新。
+
+## Apple 签名与公证
+
+在仓库 Actions Variables 中设置 `CODESIGN_IDENTITY` 为 Developer ID Application 签名标识。将 Base64 格式的证书包及其密码分别存为 `APPLE_CERTIFICATE_P12`、`APPLE_CERTIFICATE_PASSWORD`。将 App Store Connect 团队 API 密钥的原文、Key ID 和 Issuer ID 分别存为 `APPLE_NOTARY_KEY_P8`、`APPLE_NOTARY_KEY_ID`、`APPLE_NOTARY_ISSUER_ID`。工作流会在打包和 Sparkle 签名前完成公证并附加票据。配置 Apple 签名后，请使用包含新版打包脚本的标签构建。
 
 ## Sparkle 更新签名
 
@@ -39,3 +45,8 @@ brew upgrade --cask --greedy echo-braveshine/rightmouse/rightmouse
 ## 赞助入口
 
 `.github/FUNDING.yml` 使用与 SimLaunch 相同的 Buy Me a Coffee 账号。README、官网和 App 直接链接到作者的赞助页面。
+
+
+## GitHub Social preview
+
+在仓库 **Settings → General → Social preview** 上传 [social-preview.png](website/assets/social-preview.png)（1280 × 640）。

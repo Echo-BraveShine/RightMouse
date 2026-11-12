@@ -19,34 +19,40 @@
 | 在终端中打开 | 从当前目录、所选文件夹或文件所在目录打开系统终端。 |
 | 菜单与外观 | 拖动排序，自定义显示项，语言与外观都可以跟随系统，也可手动选择。macOS 26+ 支持液态玻璃。 |
 
-## 安装与更新
+## 安装
 
-1. 从 [GitHub Releases](https://github.com/Echo-BraveShine/RightMouse/releases) 下载通用版 ZIP，解压后将 RightMouse 拖到「应用程序」。
-2. 打开 RightMouse，通过「扩展设置」在 macOS 系统设置中启用访达扩展。
-3. 在本地文件夹空白处右键，选择「新建文件」试用。
+### 直接下载
 
-当前发布脚本使用临时签名。公开分发前应配置 Apple Developer ID 签名与公证。访达菜单覆盖本地文件夹和挂载卷。文件操作需要相应权限，部分目录需要通过系统选择器授权。macOS 可能对「桌面」「文稿」「下载」等位置要求单独授权。
+从 [GitHub Releases](https://github.com/Echo-BraveShine/RightMouse/releases) 下载最新的通用版 ZIP，解压后将 `RightMouse.app` 拖到「应用程序」。
 
-打开 **通用 → 版本与支持 → 检查更新** 查看 GitHub 上的正式发布版本。发现新版时，可在 App 内下载、安装并重新启动。
+### 使用 Homebrew
 
-## Homebrew
-
-首个 GitHub Release 发布且 cask 同步后，可通过 Homebrew 安装和升级。
+发布版可通过 RightMouse 的 Homebrew tap 安装：
 
 ```sh
 brew tap echo-braveshine/rightmouse https://github.com/Echo-BraveShine/RightMouse.git
 brew install --cask echo-braveshine/rightmouse/rightmouse
+```
+
+## 第一次使用
+
+1. 打开 RightMouse，在「通用」中点「扩展设置」，然后在 macOS 系统设置里启用 RightMouse 的访达扩展。
+2. 在访达打开一个文件夹，右键点击空白处，选择「新建文件」。选中文件后可试用「复制到」和「移动到」。
+3. 在 RightMouse 的「右键菜单」「常用目录」和「文件模板」中，自定义平时要用的命令、目录和模板。
+
+如果 macOS 提示访问桌面、文稿、下载或其他文件夹，请根据需要授权。访达菜单也可在挂载卷中使用，文件操作取决于该位置的权限。
+
+## 更新
+
+- **在 App 内更新**：打开「通用 → 版本与支持 → 检查更新」。有新版时，可以在 App 内下载、安装并重新启动。
+- **使用 Homebrew 更新**：如果通过 Homebrew 安装，也可以运行：
+
+```sh
 brew upgrade --cask --greedy echo-braveshine/rightmouse/rightmouse
 ```
 
-## 本地开发
-
-用包含 macOS 26 或更新 SDK 的 Xcode 打开 `RightMouse.xcodeproj`，选择 RightMouse → My Mac 运行。
-
-```sh
-./scripts/build-release.sh
-```
-
-构建脚本生成通用版 ZIP 和 SHA-256 校验文件。发布及官网部署步骤见 [发布说明](RELEASING.md)。
+[构建与发布说明](RELEASING.md)
 
 如果 RightMouse 对你有帮助，欢迎 [请我喝杯咖啡](https://buymeacoffee.com/1239383708p)，支持后续开发。
+
+![RightMouse 仓库分享图](website/assets/social-preview.png)
