@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create a file where you’re working, send it to another folder, or open Terminal right there.">
+  <title>RightMouse · Make Finder’s right click yours.</title>
+  <link rel="icon" href="assets/rightmouse.png" type="image/png">
+  <script src="appearance.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container bar">
+      <a class="brand" href="./"><img src="assets/rightmouse.png" alt="">RightMouse</a>
+      <nav>
+        <a href="https://github.com/Echo-BraveShine/RightMouse">Source</a>
+        <div class="theme-switch" role="group" aria-label="Appearance" hidden>
+          <button type="button" data-theme-choice="system" aria-pressed="true">System</button>
+          <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+        </div>
+        <div class="language-switch" role="group" aria-label="Language">
+          <a href="./" lang="zh-CN" hreflang="zh-CN">中文</a>
+          <a href="en.html" lang="en" hreflang="en" aria-current="page">EN</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Make Finder’s<br>right click yours.</h1>
+        <p class="lede">Create a file where you’re working, send it to another folder, or open Terminal right there.</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/Echo-BraveShine/RightMouse/releases">Go to GitHub Releases</a>
+          <a class="button" href="https://github.com/Echo-BraveShine/RightMouse">View Source</a>
+        </div>
+        <small class="requirements">macOS 13+ · Apple silicon and Intel · English / 简体中文</small>
+      </div>
+      <figure class="preview">
+        <div class="preview-window">
+          <div class="preview-title">Finder</div>
+          <img class="preview-icon" src="assets/rightmouse.png" alt="">
+          <ul class="preview-menu">
+                <li>New File</li>
+                <li>Copy to</li>
+                <li>Move to</li>
+                <li>Copy Path</li>
+                <li class=selected>Open in Terminal</li>
+          </ul>
+        </div>
+        <figcaption>Illustration of the Finder context menu</figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>Everyday actions in Finder</h2>
+      <div class="features">
+          <article><h3>Create files from templates</h3><p>Import and rename multiple templates with the same extension. The context menu shows each extension and template name.</p></article>
+          <article><h3>Copy or move files</h3><p>Send selected items to a favorite folder or choose a destination for this operation.</p></article>
+          <article><h3>Copy paths or open Terminal</h3><p>Copy selected paths or right-click the background to copy the current folder path. You can also open Terminal there.</p></article>
+          <article><h3>Arrange the menu your way</h3><p>Drag commands into order and choose which ones appear. Set the app’s language and appearance manually or follow macOS.</p></article>
+      </div>
+    </section>
+    <section class="setup">
+      <h2>Getting started</h2>
+      <ol>
+          <li>Download and unzip RightMouse from GitHub Releases, then drag it into Applications.</li>
+          <li>Open RightMouse and use Extension Settings to enable its Finder extension in macOS System Settings.</li>
+          <li>Right-click the background of a local folder and choose New File.</li>
+      </ol>
+      <p class="update-note">Check for updates in General → Version & Support to install published Sparkle updates in the app.</p>
+      <h3>Homebrew</h3>
+      <p>After the first GitHub Release and cask sync, use Homebrew to install or upgrade.</p>
+      <pre><code>brew tap echo-braveshine/rightmouse https://github.com/Echo-BraveShine/RightMouse.git
+brew install --cask echo-braveshine/rightmouse/rightmouse
+brew upgrade --cask --greedy echo-braveshine/rightmouse/rightmouse</code></pre>
+    </section>
+  </main>
+  <footer>
+    <div class="container bar">
+      <span>RightMouse</span>
+      <nav>
+        <a href="https://github.com/Echo-BraveShine/RightMouse/issues">Report an Issue</a>
+        <a href="https://buymeacoffee.com/1239383708p">Buy Me a Coffee</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44E451D70B41EAF6C8C9658C /* RightMouseFinder.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FD1D1081AB6F7841111BCDE5 /* RightMouseFinder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		46B6C5D254E7BEFF4B03B5E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 533F69F406B6A3D78B8FC724 /* Assets.xcassets */; };
+		4F98A2D250D619A393CEF93A /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = B55838C242968BECF539DDEE /* Sparkle */; };
+		7222C232B19780E794D27DC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 209B8FD3D02078C5F3C73F74 /* InfoPlist.strings */; };
+		BA793D9BCDB028C6BA779088 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D03455AC66FAF322424603F3 /* Localizable.strings */; };
+		BA82D2839F5FA3138CC8B82D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 209B8FD3D02078C5F3C73F74 /* InfoPlist.strings */; };
+		BE94B328DB5685366F5C5B61 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621C892AFF7BA275663A35C /* Preferences.swift */; };
+		C30B229EB307B70B9ABD9077 /* RightMouseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70BBFEE52A4072A049E9C8 /* RightMouseApp.swift */; };
+		C94F4C710A47393671B4AD92 /* FinderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C5C2E5AB07C54B2565B65 /* FinderMenu.swift */; };
+		DA94AC6400F0F05FE4582F06 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D03455AC66FAF322424603F3 /* Localizable.strings */; };
+		DD2DB5D2D43B752EE1A2B89B /* ReleaseUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA60EAB948559E527577A75 /* ReleaseUpdates.swift */; };
+		FF47C4981D56BC32C57666CF /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621C892AFF7BA275663A35C /* Preferences.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B241B588267C874FA940C36D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6586BFD027AA8513FE3472BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE6331CD86946142ADC8EBBC;
+			remoteInfo = RightMouseFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F63F77DC54E6F199B239F7DF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				44E451D70B41EAF6C8C9658C /* RightMouseFinder.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3EE381ADEA68F7E978765E0A /* RightMouseFinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RightMouseFinder.entitlements; sourceTree = "<group>"; };
+		4DE1E6AD06BF5FDB61DC7704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		533F69F406B6A3D78B8FC724 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		618FD39E4EB82E4B256663C1 /* RightMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		766C5C2E5AB07C54B2565B65 /* FinderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderMenu.swift; sourceTree = "<group>"; };
+		7F70BBFEE52A4072A049E9C8 /* RightMouseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMouseApp.swift; sourceTree = "<group>"; };
+		8621C892AFF7BA275663A35C /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		8DA60EAB948559E527577A75 /* ReleaseUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseUpdates.swift; sourceTree = "<group>"; };
+		9BDDB9B302AEE5E289CAE70C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C9C414B7C0D40FA1BC669098 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DF953285D633AC1F15BF649B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F847601FA40103EB5BF4E5DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		FD1D1081AB6F7841111BCDE5 /* RightMouseFinder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RightMouseFinder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0919C59BCE01AABE11CCD927 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F98A2D250D619A393CEF93A /* Sparkle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F5D649E4CBE529C71235CBD = {
+			isa = PBXGroup;
+			children = (
+				3C3FA3BC431A8EB436E575DF /* App */,
+				41433C5EC12F7E49C16186D4 /* FinderExtension */,
+				F5AD3756EF26339B732D3AD2 /* Shared */,
+				B9AB6C86C67E303D5386AE0C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3C3FA3BC431A8EB436E575DF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				533F69F406B6A3D78B8FC724 /* Assets.xcassets */,
+				4DE1E6AD06BF5FDB61DC7704 /* Info.plist */,
+				8DA60EAB948559E527577A75 /* ReleaseUpdates.swift */,
+				7F70BBFEE52A4072A049E9C8 /* RightMouseApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		41433C5EC12F7E49C16186D4 /* FinderExtension */ = {
+			isa = PBXGroup;
+			children = (
+				766C5C2E5AB07C54B2565B65 /* FinderMenu.swift */,
+				DF953285D633AC1F15BF649B /* Info.plist */,
+				3EE381ADEA68F7E978765E0A /* RightMouseFinder.entitlements */,
+			);
+			path = FinderExtension;
+			sourceTree = "<group>";
+		};
+		B9AB6C86C67E303D5386AE0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				618FD39E4EB82E4B256663C1 /* RightMouse.app */,
+				FD1D1081AB6F7841111BCDE5 /* RightMouseFinder.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5AD3756EF26339B732D3AD2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8621C892AFF7BA275663A35C /* Preferences.swift */,
+				209B8FD3D02078C5F3C73F74 /* InfoPlist.strings */,
+				D03455AC66FAF322424603F3 /* Localizable.strings */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8060576720FF84C81761E7CC /* RightMouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AFA57CDF21A7EA9DB84EEC5 /* Build configuration list for PBXNativeTarget "RightMouse" */;
+			buildPhases = (
+				B51C9A5A6CC5013027183483 /* Sources */,
+				8101AA89A85F23E2064AA188 /* Resources */,
+				0919C59BCE01AABE11CCD927 /* Frameworks */,
+				F63F77DC54E6F199B239F7DF /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EA00A22BA3E569F79700A7A /* PBXTargetDependency */,
+			);
+			name = RightMouse;
+			packageProductDependencies = (
+				B55838C242968BECF539DDEE /* Sparkle */,
+			);
+			productName = RightMouse;
+			productReference = 618FD39E4EB82E4B256663C1 /* RightMouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FE6331CD86946142ADC8EBBC /* RightMouseFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F09F80FD3343F5F098F3C148 /* Build configuration list for PBXNativeTarget "RightMouseFinder" */;
+			buildPhases = (
+				0C33E604E592955FBD451A86 /* Sources */,
+				B0FD35B59247942088F59AD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RightMouseFinder;
+			packageProductDependencies = (
+			);
+			productName = RightMouseFinder;
+			productReference = FD1D1081AB6F7841111BCDE5 /* RightMouseFinder.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6586BFD027AA8513FE3472BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = C7E654CCCC192A4AB7EFC003 /* Build configuration list for PBXProject "RightMouse" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"zh-Hans",
+			);
+			mainGroup = 0F5D649E4CBE529C71235CBD;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8B223516EC4091EE9A7025A2 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B9AB6C86C67E303D5386AE0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8060576720FF84C81761E7CC /* RightMouse */,
+				FE6331CD86946142ADC8EBBC /* RightMouseFinder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8101AA89A85F23E2064AA188 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46B6C5D254E7BEFF4B03B5E8 /* Assets.xcassets in Resources */,
+				BA82D2839F5FA3138CC8B82D /* InfoPlist.strings in Resources */,
+				BA793D9BCDB028C6BA779088 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0FD35B59247942088F59AD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7222C232B19780E794D27DC1 /* InfoPlist.strings in Resources */,
+				DA94AC6400F0F05FE4582F06 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C33E604E592955FBD451A86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C94F4C710A47393671B4AD92 /* FinderMenu.swift in Sources */,
+				BE94B328DB5685366F5C5B61 /* Preferences.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B51C9A5A6CC5013027183483 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF47C4981D56BC32C57666CF /* Preferences.swift in Sources */,
+				DD2DB5D2D43B752EE1A2B89B /* ReleaseUpdates.swift in Sources */,
+				C30B229EB307B70B9ABD9077 /* RightMouseApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6EA00A22BA3E569F79700A7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE6331CD86946142ADC8EBBC /* RightMouseFinder */;
+			targetProxy = B241B588267C874FA940C36D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		209B8FD3D02078C5F3C73F74 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9C414B7C0D40FA1BC669098 /* en */,
+				F847601FA40103EB5BF4E5DF /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D03455AC66FAF322424603F3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BDDB9B302AEE5E289CAE70C /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0BF92B98C2F5B54117395CD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = FinderExtension/RightMouseFinder.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ekko.rightmouse.finder;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2F9C5E8664A7C6EB1BD9114F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "RightMouse uses Desktop folders for Finder actions you choose, including opening them in Terminal.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "RightMouse uses Documents folders for Finder actions you choose, including opening them in Terminal.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "RightMouse uses Downloads folders for Finder actions you choose, including opening them in Terminal.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ekko.rightmouse;
+				SDKROOT = macosx;
+				SPARKLE_PUBLIC_ED_KEY = "ZX+eeMUVF3o6rzm0Q+GP6iTTbWcbXKBwvuk3ziawIn8=";
+			};
+			name = Debug;
+		};
+		325962FBC0AA12554580C2AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "RightMouse uses Desktop folders for Finder actions you choose, including opening them in Terminal.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "RightMouse uses Documents folders for Finder actions you choose, including opening them in Terminal.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "RightMouse uses Downloads folders for Finder actions you choose, including opening them in Terminal.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ekko.rightmouse;
+				SDKROOT = macosx;
+				SPARKLE_PUBLIC_ED_KEY = "ZX+eeMUVF3o6rzm0Q+GP6iTTbWcbXKBwvuk3ziawIn8=";
+			};
+			name = Release;
+		};
+		3DCD58B28C2FEBEBFF4B6FD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = FinderExtension/RightMouseFinder.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ekko.rightmouse.finder;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D6458A751DEBF62C29023CF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D88EDF29A81025DB0529189F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AFA57CDF21A7EA9DB84EEC5 /* Build configuration list for PBXNativeTarget "RightMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F9C5E8664A7C6EB1BD9114F /* Debug */,
+				325962FBC0AA12554580C2AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C7E654CCCC192A4AB7EFC003 /* Build configuration list for PBXProject "RightMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88EDF29A81025DB0529189F /* Debug */,
+				D6458A751DEBF62C29023CF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F09F80FD3343F5F098F3C148 /* Build configuration list for PBXNativeTarget "RightMouseFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DCD58B28C2FEBEBFF4B6FD2 /* Debug */,
+				0BF92B98C2F5B54117395CD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B223516EC4091EE9A7025A2 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B55838C242968BECF539DDEE /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B223516EC4091EE9A7025A2 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 6586BFD027AA8513FE3472BE /* Project object */;
+}

@@ -1,0 +1,23 @@
+name: Build
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - run: ./scripts/build-release.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RightMouse-universal
+          path: dist/
+          if-no-files-found: error

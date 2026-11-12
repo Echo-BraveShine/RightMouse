@@ -1,0 +1,3 @@
+"NSDesktopFolderUsageDescription" = "RightMouse 需要访问桌面文件夹，以执行你在访达中选择的操作，包括在终端中打开文件夹。";
+"NSDocumentsFolderUsageDescription" = "RightMouse 需要访问文稿文件夹，以执行你在访达中选择的操作，包括在终端中打开文件夹。";
+"NSDownloadsFolderUsageDescription" = "RightMouse 需要访问下载文件夹，以执行你在访达中选择的操作，包括在终端中打开文件夹。";

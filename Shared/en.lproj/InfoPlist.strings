@@ -1,0 +1,3 @@
+"NSDesktopFolderUsageDescription" = "RightMouse uses Desktop folders for Finder actions you choose, including opening them in Terminal.";
+"NSDocumentsFolderUsageDescription" = "RightMouse uses Documents folders for Finder actions you choose, including opening them in Terminal.";
+"NSDownloadsFolderUsageDescription" = "RightMouse uses Downloads folders for Finder actions you choose, including opening them in Terminal.";

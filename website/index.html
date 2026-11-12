@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在当前目录新建文件，一键归档，或直接打开终端。把常用操作放进你自己的右键菜单。">
+  <title>RightMouse · 让访达右键 更顺手。</title>
+  <link rel="icon" href="assets/rightmouse.png" type="image/png">
+  <script src="appearance.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container bar">
+      <a class="brand" href="./"><img src="assets/rightmouse.png" alt="">RightMouse</a>
+      <nav>
+        <a href="https://github.com/Echo-BraveShine/RightMouse">源码</a>
+        <div class="theme-switch" role="group" aria-label="网页外观" hidden>
+          <button type="button" data-theme-choice="system" aria-pressed="true">系统</button>
+          <button type="button" data-theme-choice="light" aria-pressed="false">浅色</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false">深色</button>
+        </div>
+        <div class="language-switch" role="group" aria-label="语言">
+          <a href="./" lang="zh-CN" hreflang="zh-CN" aria-current="page">中文</a>
+          <a href="en.html" lang="en" hreflang="en">EN</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>让访达右键<br>更顺手。</h1>
+        <p class="lede">在当前目录新建文件，一键归档，或直接打开终端。把常用操作放进你自己的右键菜单。</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/Echo-BraveShine/RightMouse/releases">前往 GitHub Releases</a>
+          <a class="button" href="https://github.com/Echo-BraveShine/RightMouse">查看源码</a>
+        </div>
+        <small class="requirements">macOS 13+ · Apple 芯片与 Intel · 简体中文 / English</small>
+      </div>
+      <figure class="preview">
+        <div class="preview-window">
+          <div class="preview-title">Finder</div>
+          <img class="preview-icon" src="assets/rightmouse.png" alt="">
+          <ul class="preview-menu">
+                <li>新建文件</li>
+                <li>复制到</li>
+                <li>移动到</li>
+                <li>复制路径</li>
+                <li class=selected>在终端中打开</li>
+          </ul>
+        </div>
+        <figcaption>访达右键菜单示意</figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>常用操作，就在手边</h2>
+      <div class="features">
+          <article><h3>从模板新建文件</h3><p>内置纯文本和 Markdown。同一后缀可导入多个模板，支持重命名。右键菜单按后缀和模板名称区分。</p></article>
+          <article><h3>复制或移动到指定目录</h3><p>选中文件后，可直接使用常用目录，也可临时选择目标文件夹。</p></article>
+          <article><h3>复制路径或进入终端</h3><p>选中项目时复制其路径，右键空白处则复制当前文件夹路径。也可在当前目录打开终端。</p></article>
+          <article><h3>按习惯整理菜单</h3><p>拖动排序并开关各项命令。App 的语言和外观都可以跟随系统，也可手动选择。</p></article>
+      </div>
+    </section>
+    <section class="setup">
+      <h2>开始使用</h2>
+      <ol>
+          <li>从 GitHub Releases 下载并解压，将 RightMouse 拖到「应用程序」。</li>
+          <li>打开 RightMouse，通过「扩展设置」在 macOS 系统设置中启用访达扩展。</li>
+          <li>在本地文件夹空白处右键，选择「新建文件」试用。</li>
+      </ol>
+      <p class="update-note">在「通用 → 版本与支持」中检查更新，可在 App 内安装已发布的 Sparkle 更新。</p>
+      <h3>Homebrew</h3>
+      <p>首个 GitHub Release 发布且 cask 同步后，可通过 Homebrew 安装和升级。</p>
+      <pre><code>brew tap echo-braveshine/rightmouse https://github.com/Echo-BraveShine/RightMouse.git
+brew install --cask echo-braveshine/rightmouse/rightmouse
+brew upgrade --cask --greedy echo-braveshine/rightmouse/rightmouse</code></pre>
+    </section>
+  </main>
+  <footer>
+    <div class="container bar">
+      <span>RightMouse</span>
+      <nav>
+        <a href="https://github.com/Echo-BraveShine/RightMouse/issues">问题反馈</a>
+        <a href="https://buymeacoffee.com/1239383708p">请我喝杯咖啡</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
