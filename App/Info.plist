@@ -40,7 +40,7 @@
 	<key>NSDownloadsFolderUsageDescription</key>
 	<string>$(INFOPLIST_KEY_NSDownloadsFolderUsageDescription)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.0.2</string>
+	<string>0.0.3</string>
 	<key>CFBundleVersion</key>
 	<string>22</string>
 	<key>SUFeedURL</key>

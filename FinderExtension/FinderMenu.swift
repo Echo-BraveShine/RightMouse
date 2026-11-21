@@ -6,6 +6,7 @@ import OSLog
 final class FinderMenu: FIFinderSync {
     private let controller = FIFinderSyncController.default()
     private var menuTemplateIDs: [UUID] = []
+    private var menuFavoriteIDs: [UUID] = []
     private var language = InterfaceLanguage.systemDefault
     private let files = FileManager.default
     private let logger = Logger(subsystem: "dev.ekko.rightmouse.finder", category: "NewFile")
@@ -70,8 +71,12 @@ final class FinderMenu: FIFinderSync {
                 addSubmenu(command, to: menu, items: entries)
             case .favorites:
                 guard selection.isEmpty else { continue }
-                addSubmenu(command, to: menu, items: preferences.folders.map { folder in
-                    item(folder.name) { self.open(folder) }
+                menuFavoriteIDs = preferences.folders.map(\.id)
+                addSubmenu(command, to: menu, items: preferences.folders.enumerated().map { index, folder in
+                    let entry = NSMenuItem(title: folder.name, action: #selector(openFavorite(_:)), keyEquivalent: "")
+                    entry.target = self
+                    entry.tag = index
+                    return entry
                 })
             case .move, .copy:
                 guard !selection.isEmpty else { continue }
@@ -134,10 +139,20 @@ final class FinderMenu: FIFinderSync {
         (sender.representedObject as? () -> Void)?()
     }
 
-    private func open(_ folder: Folder) {
-        guard isDirectory(folder.url), NSWorkspace.shared.open(folder.url) else {
-            show(tr("无法打开「%@」", folder.name), tr("请在 RightMouse 设置中重新选择目录。"))
-            return
+    @objc private func openFavorite(_ sender: NSMenuItem) {
+        do {
+            let folders = try Preferences.load().folders
+            guard menuFavoriteIDs.indices.contains(sender.tag),
+                  let folder = folders.first(where: { $0.id == menuFavoriteIDs[sender.tag] }) else {
+                show(tr("常用目录已更改"), tr("请重新打开右键菜单后重试。"))
+                return
+            }
+            guard NSWorkspace.shared.open(folder.url) else {
+                show(tr("无法打开「%@」", folder.name), tr("请在 RightMouse 设置中重新选择目录。"))
+                return
+            }
+        } catch {
+            show(tr("无法读取常用目录"), error.localizedDescription)
         }
     }
 
