@@ -1,6 +1,6 @@
 cask "rightmouse" do
-  version "0.0.2"
-  sha256 "879741320eda493fc51e746962e336e4ba1020890a138e5bc416c8c4553a5cd3"
+  version "0.0.3"
+  sha256 "ec2029de0f10455d695fb10aaf2cd0211831005b650e66dc4f8f6b864e8ccae0"
 
   url "https://github.com/Echo-BraveShine/RightMouse/releases/download/v#{version}/RightMouse-#{version}-universal.zip"
   name "RightMouse"
